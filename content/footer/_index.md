@@ -28,7 +28,7 @@ columns:
         href: https://www.ecosounds.org/
 partners:
   - alt: TERN
-    image: /images/TERN-web-Logo-Primary-RGB-150x150.webp
+    image: /images/TERN-web-Logo-Primary-RGB-150x150.png
   - alt: JCU
     image: /images/v1-JCU-Logo-Shield-CMYK.svg
     logo_shape: compact
@@ -36,7 +36,7 @@ partners:
     image: /images/QUT_logo.svg
     logo_shape: compact
   - alt: EcoCommons
-    image: /images/EcoCommons-LogoIcon@4x2-140x95.webp
+    image: /images/EcoCommons-LogoIcon@4x2-140x95.png
   - alt: Atlas of Living Australia
     image: /images/ALA_logo.svg
   - alt: Australian Research Data Commons

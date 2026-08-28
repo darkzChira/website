@@ -1,6 +1,6 @@
 ---
 title: Contribute to the registry
-image: images/Maybe-home-page3.webp
+image: images/Maybe-home-page3.jpg
 layout: resources
 BookToc: false
 ---

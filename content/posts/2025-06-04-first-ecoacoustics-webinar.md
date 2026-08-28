@@ -1,7 +1,7 @@
 ---
 title: "Ecoacoustics in Action: Real-World Applications and Insights from the Field"
 date: 2025-06-04T16:27:45+10:00
-image: "/images/kookaburra.webp"
+image: "/images/kookaburra.png"
 imageStyle: "background-position: 0% 20%;"
 draft: false
 authors:

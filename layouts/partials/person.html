@@ -1,7 +1,14 @@
-{{- $imagePath := printf "static/%s" (strings.TrimPrefix "/" .imgUrl) -}}
-{{- $image := imageConfig $imagePath -}}
+{{- $image := partial "image-resource.html" (dict "page" .page "src" .imgUrl) -}}
+{{- $class := "profile-img" -}}
+{{- if not .imgSquare }}{{ $class = printf "%s circle" $class }}{{ end -}}
 <div class="flex-3-row column person-card">
-    <img class="profile-img {{if not .imgSquare }}circle{{ end }}" src="{{ .imgUrl }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Picture of {{ .name }}" loading="lazy" decoding="async" />
+    {{- partial "responsive-image.html" (dict
+        "resource" $image
+        "src" .imgUrl
+        "alt" (printf "Picture of %s" .name)
+        "class" $class
+        "sizes" "(max-width: 700px) 100vw, 320px"
+    ) }}
 
     <h3>{{ .name }}</h3>
     <span class="job-title">{{ .jobTitle }}</span>

@@ -15,7 +15,7 @@ This presentation is for demonstration purposes.
 
 ### Slide with an image
 
-![Susan Fuller](/images/people/susan-fuller.webp)
+![Susan Fuller](/images/people/susan-fuller.jpg)
 
 Susan Fuller
 

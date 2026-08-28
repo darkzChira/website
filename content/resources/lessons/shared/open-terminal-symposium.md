@@ -9,11 +9,11 @@ Now open a terminal in the folder where you downloaded the files:
 - Open _Windows Explorer_ to the folder where you downloaded the data
 - Right click on the folder and choose _Open in Terminal_
 
-![open terminal context menu](/resources/lessons/shared/open-terminal-context-menu.webp)
+![open terminal context menu](/resources/lessons/shared/open-terminal-context-menu.png)
 
 It should look like this:
 
-![opened terminal](/resources/lessons/shared/opened-terminal.webp)
+![opened terminal](/resources/lessons/shared/opened-terminal.png)
 
 
 {{< /tab >}}
@@ -22,11 +22,11 @@ It should look like this:
 - Open _Windows Explorer_ to the folder where you downloaded the data
 - Right click on the folder and choose _Open in Terminal_
 
-![open pwsh context menu](/resources/lessons/shared/open-pwsh-context-menu.webp)
+![open pwsh context menu](/resources/lessons/shared/open-pwsh-context-menu.png)
 
 It should look like this:
 
-![opened terminal](/resources/lessons/shared/opened-conhost.webp)
+![opened terminal](/resources/lessons/shared/opened-conhost.png)
 
 
 {{< /tab >}}

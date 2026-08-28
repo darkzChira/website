@@ -1,6 +1,6 @@
 ---
 title: Recognizer Registry
-image: images/Maybe-home-page3.webp
+image: images/Maybe-home-page3.jpg
 layout: resources
 type: registry
 ---

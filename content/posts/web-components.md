@@ -1,7 +1,7 @@
 ---
 title: "Reusable Spectrogram and Verification Web Components"
 date: 2025-04-04T12:00:00+10:00
-image: "/images/frog.webp"
+image: "/images/frog.jpg"
 imageCredit: "Professor Susan Fuller"
 authors:
   - Hudson Newey
@@ -46,7 +46,7 @@ you can copy and paste into your website.
 
 {{%
     figure
-    src="./spectrogram-creator.webp"
+    src="./spectrogram-creator.png"
     caption="A preview of the spectrogram creator webpage"
 %}}
 
@@ -63,7 +63,7 @@ There are many options available to customise the spectrogram to your liking.
 
 {{%
     figure
-    src="./spectrogram-variants.webp"
+    src="./spectrogram-variants.png"
     caption="Four variants of spectrograms with different colours, window sizes, and scales"
 %}}
 
@@ -79,7 +79,7 @@ workflows. This component stacks on top of the spectrogram component.
 
 {{%
     figure
-    src="./spectrogram-annotations.webp"
+    src="./spectrogram-annotations.png"
     caption="Spectrogram with annotations"
 %}}
 
@@ -101,7 +101,7 @@ designed to help a user batch verify or classify many subjects quickly.
 
 {{%
     figure
-    src="./verification-grid.webp"
+    src="./verification-grid.png"
     caption="A verification grid deployed on Ecosounds"
     width="90%"
 %}}
