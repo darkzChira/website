@@ -11,7 +11,9 @@
         <a class="oe-post-link" href="{{ .RelPermalink }}"></a>
 
           {{ if .Params.image }}
-            {{ $image := partial "image-resource.html" (dict "page" . "src" .Params.image) }}
+            {{ $imagePath := strings.TrimPrefix "/" .Params.image }}
+            {{ $image := .Resources.GetMatch $imagePath }}
+            {{ if not $image }}{{ $image = resources.Get $imagePath }}{{ end }}
             <div class="oe-post-image" style="background-image:
               {{ with $image }}
                 {{ $cardWidth := 800 }}

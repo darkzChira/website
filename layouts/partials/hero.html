@@ -1,5 +1,8 @@
 {{ with .Params.image }}
-{{ $image := partial "image-resource.html" (dict "page" $.Page "src" .) }}
+{{ $imagePath := strings.TrimPrefix "/" . }}
+{{ $image := resources.Get $imagePath }}
+{{ if not $image }}{{ $image = $.Resources.GetMatch $imagePath }}{{ end }}
+{{ if not $image }}{{ $image = $.Resources.GetMatch (path.Base $imagePath) }}{{ end }}
 {{ with $image }}
 {{ $heroWidth := 1600 }}
 {{ if lt .Width $heroWidth }}{{ $heroWidth = .Width }}{{ end }}

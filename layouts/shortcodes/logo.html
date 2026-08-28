@@ -6,14 +6,16 @@
 {{- $src_dark := $data.image_dark -}}
 {{- $fallback := cond ($src_dark  | not | not ) "" "shortcode-logo-fallback-background" -}}
 {{- $tag := cond ($data.href | not | not) "a" "div" -}}
-{{- $lightResource := partial "image-resource.html" (dict "page" .Page "src" $src_light) -}}
+{{- $lightPath := strings.TrimPrefix "/" $src_light -}}
+{{- $lightResource := resources.FromString $lightPath (readFile (printf "static/%s" $lightPath)) -}}
 {{- $lightImage := $lightResource -}}
 {{- if and $lightResource (or (eq $lightResource.MediaType.SubType "jpeg") (eq $lightResource.MediaType.SubType "png")) -}}
     {{- $lightImage = $lightResource.Process "webp q82" -}}
 {{- end -}}
 {{- $darkImage := false -}}
 {{- with $src_dark -}}
-    {{- $darkImage = partial "image-resource.html" (dict "page" $.Page "src" .) -}}
+    {{- $darkPath := strings.TrimPrefix "/" . -}}
+    {{- $darkImage = resources.FromString $darkPath (readFile (printf "static/%s" $darkPath)) -}}
     {{- if and $darkImage (or (eq $darkImage.MediaType.SubType "jpeg") (eq $darkImage.MediaType.SubType "png")) -}}
         {{- $darkImage = $darkImage.Process "webp q82" -}}
     {{- end -}}

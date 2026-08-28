@@ -1,6 +1,5 @@
-{{- $resource := partial "image-resource.html" (dict "page" .PageInner "src" .Destination) -}}
 {{- partial "responsive-image.html" (dict
-  "resource" $resource
+  "page" .PageInner
   "src" .Destination
   "alt" .PlainText
   "title" .Title
