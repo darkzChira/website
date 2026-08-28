@@ -54,19 +54,14 @@
 <style media="(prefers-color-scheme:dark)" data-theme-toggle="dark">{{ .Content | safeCSS }}</style>
 {{ end }}
 {{- $criticalFiles := slice "css/common.css" "css/main_nav.css" "css/layout.css" "css/page.css" "css/button.css" "css/typography.css" }}
-{{- $criticalVariant := "page" }}
 {{- if .IsHome }}
   {{- $criticalFiles = $criticalFiles | append "css/home.css" }}
-  {{- $criticalVariant = "home" }}
 {{- else if eq .Section "resources" }}
   {{- $criticalFiles = $criticalFiles | append "css/resources.scss" "css/registry.scss" "css/glossary.css" }}
-  {{- $criticalVariant = "resources" }}
 {{- else if eq .Section "posts" }}
   {{- $criticalFiles = $criticalFiles | append "css/posts.css" }}
-  {{- $criticalVariant = "posts" }}
 {{- else if eq .Section "contact" }}
   {{- $criticalFiles = $criticalFiles | append "css/contact.css" }}
-  {{- $criticalVariant = "contact" }}
 {{- end }}
 {{- $criticalResources := slice }}
 {{- range $criticalFiles }}
@@ -74,7 +69,8 @@
   {{- $part = resources.FromString (printf "css/inline-parts/%s.scss" (path.BaseName .)) $part.Content }}
   {{- $criticalResources = $criticalResources | append $part }}
 {{- end }}
-{{- $critical := $criticalResources | resources.Concat (printf "css/inline-%s.scss" $criticalVariant) | css.Sass }}
+{{- $criticalKey := cond .IsHome "home" (.Section | default "page") }}
+{{- $critical := $criticalResources | resources.Concat (printf "css/critical-%s.scss" $criticalKey) | css.Sass }}
 {{- if hugo.IsProduction }}
 {{- $critical = $critical | minify }}
 {{- end }}
@@ -87,20 +83,11 @@
 
 {{/* Shoelace */}}
 
-<link rel="stylesheet" media="print"
-    onload="this.onload=null;if(this.media==='print')this.media='(prefers-color-scheme:light)'"
-    data-theme-toggle="light"
+<link rel="stylesheet" media="(prefers-color-scheme:light)"
     href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.86/dist/themes/light.css" />
-<link rel="stylesheet" media="print"
-    data-theme-toggle="dark"
+<link rel="stylesheet" media="(prefers-color-scheme:dark)"
     href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.86/dist/themes/dark.css"
-    onload="this.onload=null;if(this.media==='print')this.media='(prefers-color-scheme:dark)';document.documentElement.classList.add('sl-theme-dark');" />
-<noscript>
-    <link rel="stylesheet" media="(prefers-color-scheme:light)"
-        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.86/dist/themes/light.css">
-    <link rel="stylesheet" media="(prefers-color-scheme:dark)"
-        href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.86/dist/themes/dark.css">
-</noscript>
+    onload="document.documentElement.classList.add('sl-theme-dark');" />
 
 <script type="module"
     src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.86/dist/shoelace.js"></script>

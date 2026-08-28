@@ -1,11 +1,9 @@
-{{- $class := "profile-img" -}}
-{{- if not .imgSquare }}{{ $class = printf "%s circle" $class }}{{ end -}}
 <div class="flex-3-row column person-card">
     {{- partial "responsive-image.html" (dict
         "page" .page
         "src" .imgUrl
         "alt" (printf "Picture of %s" .name)
-        "class" $class
+        "class" (cond (not .imgSquare) "profile-img circle" "profile-img")
         "sizes" "(max-width: 700px) 100vw, 320px"
     ) }}
 
